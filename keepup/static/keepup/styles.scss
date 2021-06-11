@@ -9,3 +9,43 @@
         font-size: large;
     }
 }
+
+#profile_pic_form {
+
+    #profile_pic_form_container {
+        height: 140px;
+        width: 100%;
+        padding: 0;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .mt-simi {
+        
+        input {
+            width: 80%;
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+        }
+    }
+}
+
+#register-bg {
+    background-image: url('img/bg6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 10%;
+
+}
+
+#login-bg {
+    background-image: url('img/bg3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 10%;
+
+}
