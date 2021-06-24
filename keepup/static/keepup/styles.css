@@ -1,3 +1,11 @@
+/*
+    How to use mixins
+    https://scotch.io/tutorials/how-to-use-sass-mixins#:~:text=%20How%20to%20Use%20Sass%20Mixins%20%201,make%20the%20output%20more%20dynamic.%20For...%20More%20
+*/
+body {
+  margin-bottom: 100px;
+}
+
 .navbar .navbar-brand {
   font-family: 'Times New Roman', Times, serif;
 }
@@ -37,5 +45,112 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 10%;
+}
+
+#reset-password-bg {
+  background-image: url("img/bg8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 10%;
+}
+
+.profile-card-container {
+  border: 1px solid transparent;
+}
+
+.profile-card-container .profile-card {
+  margin: 10% auto;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: .35rem;
+  padding: 20px;
+  width: 100%;
+}
+
+.profile-card-container .profile-card h1 {
+  text-align: center;
+}
+
+.profile-card-container .profile-card img {
+  margin-top: 10px;
+  width: 80%;
+  height: 80%;
+}
+
+.profile-card-container .profile-card p {
+  text-align: center;
+  font-size: large;
+}
+
+.profile-card-container .password-match p {
+  font-size: smaller;
+  font-family: cursive;
+  display: none;
+}
+
+.profile-card-container .password-match .yes {
+  color: #84f800;
+}
+
+.profile-card-container .password-match .no {
+  color: #f12323;
+}
+
+#edit-profile-select-box {
+  width: 80%;
+  margin: auto;
+}
+
+#edit-profile-select-box .text-danger {
+  font-size: smaller;
+}
+
+/* All breakpoints from sm to xl */
+@media (min-width: 576px) {
+  .profile-card-container .profile-card {
+    width: 80%;
+    margin: 7% auto;
+  }
+  .profile-card-container .profile-card img {
+    width: 60%;
+    height: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-card-container .profile-card {
+    width: 70%;
+  }
+  .profile-card-container .profile-card img {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .profile-card-container .profile-card {
+    width: 60%;
+    margin: 5% auto;
+  }
+  .profile-card-container .profile-card .img {
+    width: 55%;
+    height: 55%;
+  }
+  #edit-profile-select-box {
+    position: absolute;
+    top: 30%;
+    width: 15%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile-card-container .profile-card {
+    width: 50%;
+  }
+  .profile-card-container .profile-card .img {
+    width: 50%;
+    height: 50%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

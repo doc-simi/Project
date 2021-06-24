@@ -1,3 +1,15 @@
+/*
+    How to use mixins
+    https://scotch.io/tutorials/how-to-use-sass-mixins#:~:text=%20How%20to%20Use%20Sass%20Mixins%20%201,make%20the%20output%20more%20dynamic.%20For...%20More%20
+*/
+
+
+@import './myvariables';
+
+body {
+    margin-bottom: 100px;
+}
+
 // Nav bar text styling
 .navbar {
     .navbar-brand {
@@ -49,3 +61,70 @@
     background-position: 50% 10%;
 
 }
+
+#reset-password-bg {
+    background-image: url('img/bg8.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 10%;
+
+}
+
+
+.profile-card-container {
+    border: 1px solid transparent;
+
+    .profile-card {
+        margin: 10% auto;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #e3e6f0;
+        border-radius: .35rem;
+        padding: 20px;
+        width: 100%;
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            margin-top: 10px;
+            width: 80%;
+            height: 80%;
+        }
+
+        p {
+            text-align: center;
+            font-size: large;
+        }
+    }
+
+    .password-match {
+        p {
+            font-size: smaller;
+            font-family: cursive;
+            display: none;
+        }
+        .yes {
+            color: rgb(132, 248, 0);
+        }
+        .no {
+            color: rgb(241, 35, 35);
+        }
+    }
+}
+
+#edit-profile-select-box {
+    width: 80%;
+    margin: auto;
+
+    .text-danger {
+        font-size: smaller;
+    }
+}
+
+
+
+
+/* All breakpoints from sm to xl */
+@import 'breakpoints';

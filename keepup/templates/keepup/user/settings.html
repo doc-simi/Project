@@ -1,1 +1,156 @@
 {% extends 'keepup/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+    
+    
+        
+
+    <div class="profile-card-container">
+        <div class="profile-card">
+            <h1 class="h3 mb-0 text-gray-800">Edit Profile</h1> <br>
+            
+            <form action="{% url 'settings' %}" class="user" enctype = "multipart/form-data" method="post">
+                {% csrf_token %}
+                
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="firstname" id="FirstName"
+                            placeholder="First Name" value="{{ request.user.first_name }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-user" name="lastname" id="LastName"
+                            placeholder="Last Name" value="{{ request.user.last_name }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control form-control-user" name="email" id="InputEmail"
+                        placeholder="Email Address" value="{{ request.user.email }}">
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="password" class="form-control form-control-user" name="password"
+                            id="InputPassword" placeholder="New Password">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control form-control-user" name="repeatpassword"
+                            id="RepeatPassword" placeholder="Repeat Password">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6 password-match">
+                        <p class="yes" id="yes"><i class="fas fa-check"></i> Password Match</p>
+                        <p class="no" id="no"><i class="fas fa-times"></i> Password doesn't Match</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control form-control-user" name="oldpassword"
+                            id="oldPassword" placeholder="Old password" minlength="8">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="date" name="DOB" id="dateinput" class="form-control form-control-user" 
+                        value="{{ request.user.D_O_B|date:'Y-m-d' }}">
+                        <center>
+                            <label for="dateinput">Date of birth {{ request.user.D_O_B }}</label>
+                        </center>
+                    </div>
+                    
+                    <div class="col-sm-6 mt-2">
+                        Gender: &nbsp;&nbsp; 
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="radio1" value="Male">
+                            <label class="form-check-label" for="radio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="radio2" value="Female">
+                            <label class="form-check-label" for="radio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="radio3" value="Undisclosed">
+                            <label class="form-check-label" for="radio3">Undisclosed</label>
+                        </div>
+                        <input type="hidden" id="sex-value" value="{{ request.user.sex }}">
+                    </div>
+                </div>
+                
+                <!-- profile pic preview -->
+                <script>
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            
+                            reader.onload = function (e) {
+                                $('#profile_pic_preview')
+                                .attr('src', e.target.result);
+                                
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                            var filesize = ((input.files[0].size) / (1024*1024)).toFixed(2);
+
+                            document.getElementById("filesize").innerHTML = `${filesize} MB`;
+                        }
+
+                    }
+                </script>
+                
+                
+
+                
+                <div class="row mb-3 p-2" id="profile_pic_form">
+                    <div class="col-12 col-sm-4 border border-secondary rounded" id="profile_pic_form_container">
+                        <img style="margin:0" src="{{ request.user.picture.profile_pic.url }}" alt="profile_pic" id="profile_pic_preview">
+                    </div>
+                    <div class="col-12 col-sm-8 mt-simi">
+                        <input type="file" name="profile_pic" onchange="readURL(this);" value="Uplaod Picture" accept="image/*" />
+                        <p id="filesize">
+                            
+                        </p>
+                        <p class="text-danger mb-5">Note that image size must be less than 2.5 MB</p>
+                    </div>
+                </div>
+
+            
+                
+            </div>
+                </div>
+                <div id="edit-profile-select-box" class="border">
+                <p>Please, use the check 
+                    box below to select
+                    your edited fields</p>
+                    <input type="checkbox" id="check-firstname" name="check-edits" value="firstname">
+                <label for="check-firstname"> First Name</label><br>
+                <input type="checkbox" id="check-lastname" name="check-edits" value="lastname">
+                <label for="check-lastname"> Last Name</label><br>
+                <input type="checkbox" id="check-email" name="check-edits" value="email">
+                <label for="check-email"> Email</label><br>
+                <input type="checkbox" id="check-password" name="check-edits" value="password">
+                <label for="check-password"> Change Password</label><br>
+                <input type="checkbox" id="check-DOB" name="check-edits" value="DOB">
+                <label for="check-DOB"> Date of birth</label><br>
+                <input type="checkbox" id="check-sex" name="check-edits" value="sex">
+                <label for="check-sex"> Gender</label><br>
+                <input type="checkbox" id="check-profile-pic" name="check-edits" value="profile_pic">
+                <label for="check-profile-pic"> Profile Pic</label><br>
+                
+                <p class="text-danger">
+                    Note that, if you don't select the altered fields, no changes will be made to your profile
+                </p>
+            </div> 
+            <center>
+                <button type="submit" class="btn btn-primary mb-5">
+                    Make Changes</button> 
+                </center>  
+        </form>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+    <script src="{% static 'keepup/js/profile-edit.js' %}"></script>
+{% endblock scripts %}
+    

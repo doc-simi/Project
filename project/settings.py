@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'keepup',
     'home',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'keepup/media')
 
 AUTH_USER_MODEL = 'keepup.User'
+
+
+#SMTP CONFIGURATION
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'simi.django@gmail.com'
+EMAIL_HOST_PASSWORD = 'jeqbulsezyygpkyy'
+

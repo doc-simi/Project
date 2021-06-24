@@ -1,1 +1,26 @@
 {% extends 'keepup/layout.html' %}
+
+
+{% block content %}
+    <div class="profile-card-container">
+        <div class="profile-card">
+            <h1 class="h3 mb-0 text-gray-800">User Profile</h1>
+            <center>
+                <img src="{{ request.user.picture.profile_pic.url }}" alt="" class="border-2 rounded-circle">
+            </center>
+            <br><br>
+            <p>First Name :  {{ request.user.first_name }}</p>
+            <p>Last Name :  {{ request.user.last_name }}</p>
+            <p>Email :  {{ request.user.email }}</p>
+            <p>Gender :  {{ request.user.sex }}</p>
+            <p>Born :  {{ request.user.D_O_B }}</p>
+            
+            <hr>
+            <center>
+                <a class="btn btn-secondary" href="{% url 'settings' %}">Edit</a>
+            </center>
+        </div>
+    </div>    
+
+
+{% endblock content %}

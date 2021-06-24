@@ -23,6 +23,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('user/', include('keepup.urls')),
     path('', TemplateView.as_view(template_name='home/index.html'), name="homepage"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

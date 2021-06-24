@@ -37,14 +37,18 @@
 
 <body class="bg-gradient-primary">
 
-
+    {% if message %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endif %}
 {% block content %}
     
 {% endblock content %}
     
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer fixed-bottom bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; The Keep Up 2020</span>

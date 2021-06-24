@@ -1,0 +1,64 @@
+@import './mixins';
+
+
+@include media-breakpoint-up(sm) {
+  .profile-card-container {
+    .profile-card {
+      width: 80%;
+      margin: 7% auto;
+
+      img {
+        width: 60%;
+        height: 60%;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  .profile-card-container {
+    .profile-card {
+      width: 70%;
+
+      img {
+        width: 70%;
+        height: 70%;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .profile-card-container {
+    .profile-card {
+      width: 60%;
+      margin: 5% auto;
+
+      .img {
+        width: 55%;
+        height: 55%;
+      }
+    }
+  }
+
+  #edit-profile-select-box {
+      position: absolute;
+      top: 30%;
+      width: 15%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .profile-card-container {
+    .profile-card {
+      width: 50%;
+
+      .img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}
+

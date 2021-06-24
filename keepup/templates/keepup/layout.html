@@ -349,10 +349,6 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -365,11 +361,16 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                {% if message %}
+                    <script>
+                        alert("{{ message }}");
+                    </script>
+                {% endif %}
 
 				<!-- Begin Page Content -->
                 <div class="container-fluid">
                     <p style="float:right">Joined: {{ request.user.date_joined|date:'j M, Y' }}</p>
-
+                    
                     
 					{% block content %}
 					{% endblock %}
@@ -401,6 +402,8 @@
         <i class="fas fa-angle-up"></i>
       </a>
       
+        
+        
       <!-- Logout Modal-->
       <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
@@ -430,6 +433,10 @@
 
       <!-- Custom scripts for all pages-->
       <script src="{% static 'keepup/js/sb-admin-2.min.js' %}"></script>
+
+      <!-- Custom scripts for different pages -->
+      {% block scripts %}
+      {% endblock %}
 
     </body>
 </html>
